@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DR</title>
+    <link rel="stylesheet" href="styles/contact.css">
+</head>
+<body>
+    <header>
+        <p><img src="images/dr logo.png" width="40" alt="Logo of DR"> Dushyant Rajotia</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="portfolio.html">PORTFOLIO</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <section class="content">
+        <img width="670" src="images/blazar.jpg" alt="Own profile image">
+        <h1>Contact</h1>
+        <p>Send me a message</p>
+        <p>Whether you wish to discuss new ideas or have a project for me, simply fill this form, and I’ll get back to you soon.</p>
+        <form action="#">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your name here">
+            <br><br>
+
+            <label for="gender">Choose your gender:</label><br>
+            <input type="radio" name="Gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="Gender" id="female">
+            <label for="female">Female</label>
+            <input type="radio" name="Gender" id="others">
+            <label for="others">Others</label>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your email">
+            <br><br>
+
+            <label for="dob">Enter your Date of Birth:</label>
+            <input type="date" id="dob">
+            <br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" cols="30" rows="5" placeholder="Write your message here..."></textarea>
+            <br><br>
+
+            <label for="color">Pick your favorite color:</label>
+            <input type="color" id="color">
+            <br><br>
+
+            <label for="country">Choose your country:</label>
+            <select id="country">
+                <option value="india">India</option>
+                <option value="china">China</option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="nepal">Nepal</option>
+            </select>
+            <br><br>
+
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <script src="scripts/script.js"></script>
+
+</body>
+</html>
