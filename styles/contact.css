@@ -1,115 +1,183 @@
-/* General styles */
-body {
-    font-family: 'Arial', sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f9;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Layout */
+body {
+    background-color: #f4f7fc;
     color: #333;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 header {
-    background-color: #333;
+    background-color: #343a40;
     color: white;
-    padding: 10px 20px;
+    padding: 1rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
-header img {
+header p img {
     vertical-align: middle;
+    margin-right: 10px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 15px;
 }
 
 nav ul li {
-    display: inline;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #575757;
-    border-radius: 5px;
+    color: #dc3545;
 }
 
 hr {
-    border: 1px solid #ccc;
-    margin: 20px 0;
+    border: 0;
+    border-top: 2px solid #ddd;
 }
 
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
+/* Main Content Section */
+main {
+    padding: 2rem;
 }
 
-.content img {
-    width: 100%;
-    max-width: 670px;
-    border-radius: 10px;
-    margin: 20px 0;
+/* Contact Form Section */
+.contact-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 }
 
-h1 {
-    color: #333;
+.contact-form h1 {
     font-size: 2.5rem;
-    margin: 10px 0;
+    margin-bottom: 1rem;
 }
 
-form {
-    margin: 20px auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
+.contact-form p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
 }
 
-form label {
-    font-weight: bold;
-    display: block;
-    margin: 10px 0 5px;
+.contact-form form {
+    display: flex;
+    flex-direction: column;
 }
 
-form input,
-form select,
-form textarea {
-    width: 100%;
-    padding: 8px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.contact-form form div {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form form label {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form form input,
+.contact-form form textarea {
     font-size: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
 }
 
-form input[type="submit"],
-form input[type="reset"] {
-    width: auto;
+.contact-form form textarea {
+    resize: vertical;
+}
+
+.contact-form form button {
+    font-size: 1.2rem;
+    padding: 1rem;
     background-color: #007bff;
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-form input[type="submit"]:hover,
-form input[type="reset"]:hover {
+.contact-form form button:hover {
     background-color: #0056b3;
+}
+
+/* Contact Information Section */
+.contact-info {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-info ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.contact-info ul li {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-form,
+    .contact-info {
+        width: 90%;
+        margin: 0 auto;
+    }
 }

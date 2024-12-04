@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - DR</title>
     <link rel="stylesheet" href="styles/contact.css">
 </head>
+
 <body>
+    <!-- Header Section -->
     <header>
         <p><img src="images/dr logo.png" width="40" alt="Logo of DR"> Dushyant Rajotia</p>
         <nav>
@@ -20,55 +23,50 @@
         </nav>
     </header>
     <hr>
-    <section class="content">
-        <img width="670" src="images/blazar.jpg" alt="Own profile image">
-        <h1>Contact</h1>
-        <p>Send me a message</p>
-        <p>Whether you wish to discuss new ideas or have a project for me, simply fill this form, and I’ll get back to you soon.</p>
-        <form action="#">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Your name here">
-            <br><br>
 
-            <label for="gender">Choose your gender:</label><br>
-            <input type="radio" name="Gender" id="male">
-            <label for="male">Male</label>
-            <input type="radio" name="Gender" id="female">
-            <label for="female">Female</label>
-            <input type="radio" name="Gender" id="others">
-            <label for="others">Others</label>
-            <br><br>
+    <!-- Main Content Section -->
+    <main>
+        <!-- Contact Form Section -->
+        <section class="contact-form">
+            <h1>Contact Me</h1>
+            <p>I'd love to hear from you! Feel free to reach out using the form below.</p>
+            <form action="submit_form.php" method="POST">
+                <div>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Your email">
-            <br><br>
+        <!-- Contact Information Section -->
+        <section class="contact-info">
+            <h2>Other Ways to Reach Me</h2>
+            <p>If you prefer, you can reach out to me directly via email or through social media.</p>
+            <ul>
+                <li>Email: <a href="mailto:dushyantrajotia@gmail.com">dushyantrajotia@gmail.com</a></li>
+                <li>Phone: <a href="tel:+919416978967">+91 9416978967</a></li>
+                <li><a href="https://instagram.com/dushyantrajotia">Instagram</a></li>
+                <li><a href="https://github.com/dushyantrajotia">GitHub</a></li>
+                <li><a href="https://www.youtube.com/@DushyantRajotia">YouTube</a></li>
+                <li><a href="https://discord.com/dushyantrajotia">Discord</a></li>
+            </ul>
+        </section>
+    </main>
 
-            <label for="dob">Enter your Date of Birth:</label>
-            <input type="date" id="dob">
-            <br><br>
-
-            <label for="message">Message:</label>
-            <textarea id="message" cols="30" rows="5" placeholder="Write your message here..."></textarea>
-            <br><br>
-
-            <label for="color">Pick your favorite color:</label>
-            <input type="color" id="color">
-            <br><br>
-
-            <label for="country">Choose your country:</label>
-            <select id="country">
-                <option value="india">India</option>
-                <option value="china">China</option>
-                <option value="bangladesh">Bangladesh</option>
-                <option value="nepal">Nepal</option>
-            </select>
-            <br><br>
-
-            <input type="reset" value="Reset">
-            <input type="submit" value="Submit">
-        </form>
-    </section>
+    <!-- Footer Section -->
+    <footer>
+        <p>Copyright © 2024 Portfolio & CV | Powered by Dushyant Rajotia</p>
+    </footer>
     <script src="scripts/script.js"></script>
-
 </body>
+
 </html>

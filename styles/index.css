@@ -1,91 +1,281 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Layout */
+body {
+    background-color: #f4f7fc;
     color: #333;
-    background-color: #f4f4f9;
     line-height: 1.6;
+    font-size: 16px;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #343a40;
+    color: white;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
 }
 
-header img {
+header p img {
     vertical-align: middle;
+    margin-right: 10px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
-    padding: 0;
-    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #575757;
+    color: #dc3545;
 }
 
-/* Main Content */
+hr {
+    border: 0;
+    border-top: 2px solid #ddd;
+}
+
+/* Main Content Section */
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    padding: 2rem;
+}
+
+/* Intro Section */
+.intro {
     text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-main img {
-    width: 100%;
-    max-width: 670px;
-    margin: 20px 0;
-    border-radius: 10px;
+.intro h1 {
+    font-size: 3rem;
+    color: #333;
 }
 
-.services-container, .skills-container, .portfolio-container {
+.intro h2 {
+    font-size: 2rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.intro img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 1rem;
+}
+
+.intro h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #555;
+}
+
+.intro p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.intro a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.intro a:hover {
+    text-decoration: underline;
+}
+
+/* About Me Section */
+.about-me {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.about-me h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-me p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Services Section */
+.services {
+    margin-top: 3rem;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.services-container {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-.services-container div, .skills-container div {
-    flex: 1;
-    min-width: 200px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.portfolio-container img {
-    width: calc(33.33% - 20px);
-    margin: 10px;
-    border-radius: 10px;
+.services-container div {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    width: 30%;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
-footer {
+.services-container div h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.services-container div p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Skills Section */
+.skills {
+    margin-top: 3rem;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-container div {
+    width: 45%;
+}
+
+.skills-container div h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.skills-container div ul {
+    list-style: none;
+}
+
+.skills-container div ul li {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Portfolio Section */
+.portfolio {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.portfolio-container p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.contact ul li {
+    margin: 0 15px;
+}
+
+.contact ul li a {
+    font-size: 1.2rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-container,
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-container div,
+    .skills-container div {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+    
+    .intro img {
+        width: 150px;
+        height: 150px;
+    }
 }

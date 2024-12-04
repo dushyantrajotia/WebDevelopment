@@ -1,101 +1,120 @@
-// Ensure the script runs only after DOM content is fully loaded
+// Ensure the DOM is fully loaded before executing scripts
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded and parsed!");
-
-    // Highlight the active navigation link
+    // Smooth Scroll for Navigation Links
     const navLinks = document.querySelectorAll("nav ul li a");
     navLinks.forEach(link => {
-        if (link.href === window.location.href) {
-            link.classList.add("active");
-        }
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href").split(".html")[0]; // Extract target from href
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
     });
 
-    // Back-to-top button
-    const backToTopButton = document.createElement("button");
-    backToTopButton.innerText = "↑ Back to Top";
-    backToTopButton.id = "backToTop";
-    backToTopButton.style.display = "none";
-    document.body.appendChild(backToTopButton);
-
+    // Sticky Header on Scroll
+    const header = document.querySelector("header");
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-            backToTopButton.style.display = "block";
+        if (window.scrollY > 50) {
+            header.classList.add("sticky");
         } else {
-            backToTopButton.style.display = "none";
+            header.classList.remove("sticky");
         }
     });
 
-    backToTopButton.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    // Profile Image Hover Animation
+    const profileImage = document.querySelector(".about-header img, .intro img");
+    if (profileImage) {
+        profileImage.addEventListener("mouseenter", () => {
+            profileImage.style.transform = "scale(1.1)";
+            profileImage.style.transition = "transform 0.3s ease";
+        });
+
+        profileImage.addEventListener("mouseleave", () => {
+            profileImage.style.transform = "scale(1)";
+        });
+    }
+
+    // Services Card Hover Effect
+    const serviceCards = document.querySelectorAll(".services-container div");
+    serviceCards.forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "translateY(-10px)";
+            card.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
+            card.style.transition = "all 0.3s ease";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "translateY(0)";
+            card.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+        });
     });
 
-    // Dynamic Year for Footer
+    // Portfolio Project Animations
+    const portfolioItems = document.querySelectorAll(".portfolio-container img");
+    portfolioItems.forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            item.style.transform = "scale(1.05)";
+            item.style.transition = "transform 0.3s ease";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            item.style.transform = "scale(1)";
+        });
+    });
+
+    // Dynamic Copyright Year
     const footer = document.querySelector("footer p");
     if (footer) {
         const currentYear = new Date().getFullYear();
-        footer.innerHTML = `Copyright © ${currentYear} Portfolio & CV | Powered by Portfolio & CV`;
+        footer.innerHTML = `Copyright © ${currentYear} Portfolio & CV | Powered by Dushyant Rajotia`;
     }
 
-    // Contact Page Form Validation
-    const contactForm = document.querySelector("form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            const name = document.querySelector("#name").value.trim();
-            const email = document.querySelector("#email").value.trim();
-            const message = document.querySelector("#message").value.trim();
+    // Scroll to Top Button
+    const scrollToTopBtn = document.createElement("button");
+    scrollToTopBtn.textContent = "↑";
+    scrollToTopBtn.style.position = "fixed";
+    scrollToTopBtn.style.bottom = "20px";
+    scrollToTopBtn.style.right = "20px";
+    scrollToTopBtn.style.background = "#343a40";
+    scrollToTopBtn.style.color = "#fff";
+    scrollToTopBtn.style.border = "none";
+    scrollToTopBtn.style.padding = "10px 15px";
+    scrollToTopBtn.style.borderRadius = "50%";
+    scrollToTopBtn.style.cursor = "pointer";
+    scrollToTopBtn.style.display = "none";
+    scrollToTopBtn.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    document.body.appendChild(scrollToTopBtn);
 
-            if (!name || !email || !message) {
-                e.preventDefault();
-                alert("Please fill out all required fields!");
-            } else if (!validateEmail(email)) {
-                e.preventDefault();
-                alert("Please enter a valid email address!");
-            } else {
-                alert("Form submitted successfully!");
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    });
+
+    // Add a Light Fade-in Animation to All Sections on Scroll
+    const sections = document.querySelectorAll("section");
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+                entry.target.style.transition = "all 0.6s ease";
             }
         });
-    }
+    }, { threshold: 0.1 });
 
-    // Email validation function
-    function validateEmail(email) {
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return emailPattern.test(email);
-    }
-
-    // Portfolio Page Lightbox Functionality
-    const portfolioImages = document.querySelectorAll(".portfolio img");
-    if (portfolioImages.length) {
-        const lightbox = document.createElement("div");
-        lightbox.id = "lightbox";
-        document.body.appendChild(lightbox);
-
-        portfolioImages.forEach(image => {
-            image.addEventListener("click", () => {
-                lightbox.classList.add("active");
-                const img = document.createElement("img");
-                img.src = image.src;
-                while (lightbox.firstChild) {
-                    lightbox.removeChild(lightbox.firstChild);
-                }
-                lightbox.appendChild(img);
-            });
-        });
-
-        lightbox.addEventListener("click", () => {
-            lightbox.classList.remove("active");
-        });
-    }
-
-    // Smooth Scroll for Navigation Links
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    smoothScrollLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const targetID = link.getAttribute("href");
-            const targetSection = document.querySelector(targetID);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" });
-            }
-        });
+    sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(50px)";
+        fadeInObserver.observe(section);
     });
 });
